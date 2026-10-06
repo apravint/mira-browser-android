@@ -1,0 +1,104 @@
+name: Build Mira Mobile Browser APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Build Unsigned APK
+        run: |
+          mkdir -p build/gen build/obj build/bin
+          export ANDROID_JAR=$ANDROID_HOME/platforms/android-34/android.jar
+          
+          echo "=== 1. Compiling Android Resources ==="
+          $ANDROID_HOME/build-tools/34.0.0/aapt package -f -m \
+            -J build/gen \
+            -M android/app/src/main/AndroidManifest.xml \
+            -S android/app/src/main/res \
+            -I $ANDROID_JAR
+          
+          echo "=== 2. Compiling Java Source Files ==="
+          find android/app/src/main/java build/gen -name "*.java" > sources.txt
+          javac -d build/obj \
+            -classpath $ANDROID_JAR \
+            -source 1.8 -target 1.8 \
+            @sources.txt
+          
+          echo "=== 3. Converting Bytecode to DEX ==="
+          find build/obj -name "*.class" > classes.txt
+          $ANDROID_HOME/build-tools/34.0.0/d8 \
+            --output build/bin/ \
+            --lib $ANDROID_JAR \
+            $(cat classes.txt)
+          
+          echo "=== 4. Packaging Unaligned APK ==="
+          $ANDROID_HOME/build-tools/34.0.0/aapt package -f \
+            -M android/app/src/main/AndroidManifest.xml \
+            -S android/app/src/main/res \
+            -A web \
+            -I $ANDROID_JAR \
+            -F build/bin/unaligned.apk build/bin/
+
+      - name: ZipAlign APK
+        run: |
+          $ANDROID_HOME/build-tools/34.0.0/zipalign -v 4 build/bin/unaligned.apk MiraBrowser.apk
+
+      - name: Create Keystore & Sign APK
+        run: |
+          keytool -genkey -v -keystore release.keystore \
+            -alias mira \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass android -keypass android \
+            -dname "CN=AyyappaPravin, OU=Dev, O=Mira, L=City, S=State, C=US"
+          
+          $ANDROID_HOME/build-tools/34.0.0/apksigner sign \
+            --ks release.keystore \
+            --ks-pass pass:android \
+            --key-pass pass:android \
+            --out MiraBrowser.apk \
+            build/bin/unaligned.apk
+          
+          $ANDROID_HOME/build-tools/34.0.0/apksigner verify MiraBrowser.apk
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: MiraBrowser-APK
+          path: MiraBrowser.apk
+
+      - name: Release APK
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+        with:
+          tag_name: "v1.0.0"
+          files: MiraBrowser.apk
+          name: "Mira Browser v1.0.0"
+          body: |
+            ## 🚀 Mira Chromium Mobile Browser v1.0.0 Release
+            
+            Developed by **Ayyappa Pravin** (<apravint@gmail.com>)
+            
+            - **Chromium Native Engine**: Hardware-accelerated mobile browser with custom chrome client.
+            - **Mira AI Assistant Drawer**: Instant page summary, question answering, and browsing assistant.
+            - **Glassmorphic UI**: Dynamic theme switcher (Tokyo Night, Catppuccin, Nord, Cyberpunk, OLED Dark).
+            - **Distraction-Free Reader Mode**: One-tap text extraction removing ads and clutter.
+            - **Multi-Tab Manager**: Fluid card view tab switching with unlimited tabs support.
+            - **Ad & Tracker Shield**: Hardware cleartext traffic enforcement and security header checks.
