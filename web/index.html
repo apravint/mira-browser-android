@@ -5,30 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Mira Chromium Mobile Browser</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="mode-normal theme-tokyonight">
 
   <!-- Top Glassmorphic Navigation Bar -->
   <div class="browser-navbar">
-    <button class="nav-btn" id="btn-back" title="Back" onclick="goBack()">‹</button>
-    <button class="nav-btn" id="btn-forward" title="Forward" onclick="goForward()">›</button>
+    <button class="nav-btn" id="btn-back" title="Back" onclick="navGoBack()">‹</button>
+    <button class="nav-btn" id="btn-forward" title="Forward" onclick="navGoForward()">›</button>
     
     <!-- Address & Search Bar Card -->
     <div class="address-bar-card">
       <span class="ssl-icon" id="ssl-status">🔒</span>
-      <input type="url" id="url-input" placeholder="Search Google or enter web address..." autocomplete="off" spellcheck="false">
+      <input type="url" id="url-input" placeholder="Search Google or enter URL..." autocomplete="off" spellcheck="false">
       <button class="nav-btn-icon" id="btn-clear" style="display:none;" onclick="clearUrlInput()">✕</button>
-      <button class="nav-btn-icon" title="Reload / Stop" onclick="reloadPage()">↻</button>
+      <button class="nav-btn-icon" title="Reload" onclick="navReload()">↻</button>
     </div>
 
-    <!-- AI Sidebar Trigger -->
-    <button class="ai-nav-badge" title="AI Assistant" onclick="toggleAISidebar()">⚡ AI</button>
+    <!-- AI Assistant Trigger -->
+    <button class="ai-nav-badge" title="Mira AI" onclick="toggleAISidebar()">⚡ AI</button>
 
-    <!-- Tab Carousel Manager Badge -->
-    <button class="tab-badge-btn" id="tab-count-btn" onclick="openTabSwitcher()">1</button>
-    
-    <!-- Overflow Menu Button -->
-    <button class="nav-btn" title="Menu" onclick="toggleOverflowMenu()">⋮</button>
+    <!-- Home Button -->
+    <button class="nav-btn" title="Home" onclick="navGoHome()">🏠</button>
   </div>
 
   <!-- Loading Progress Bar -->
@@ -36,70 +36,73 @@
     <div class="progress-bar-fill" id="progress-fill"></div>
   </div>
 
-  <!-- Overflow Dropdown Menu -->
-  <div class="overflow-menu-dropdown" id="overflow-menu">
-    <div class="menu-row-item" onclick="openNewTab()">
-      <span>➕ New Tab</span>
+  <!-- Speed Dial Start Dashboard -->
+  <div class="dashboard-wrapper" id="dashboard-wrapper">
+    <div class="brand-hero">
+      <div class="brand-logo-glow">⚡</div>
+      <h1 class="brand-title">Mira Browser</h1>
+      <p class="brand-subtitle">Fast • Private • AI-Accelerated Chromium</p>
     </div>
-    <div class="menu-row-item" onclick="toggleIncognitoMode()">
-      <span>🕵️ Incognito Mode</span>
-      <span class="toggle-status" id="incognito-badge">OFF</span>
+
+    <!-- Search Box in Dashboard -->
+    <div class="dashboard-search-card">
+      <input type="text" id="dash-search-input" placeholder="Search web or type URL..." autocomplete="off">
+      <button class="dash-search-btn" onclick="executeDashSearch()">GO</button>
     </div>
-    <div class="menu-row-item" onclick="toggleDesktopMode()">
-      <span>💻 Desktop Site</span>
-      <span class="toggle-status" id="desktop-badge">OFF</span>
-    </div>
-    <div class="menu-row-item" onclick="toggleReaderMode()">
-      <span>📖 Distraction-Free Reader</span>
-    </div>
-    <div class="menu-row-item" onclick="bookmarkCurrentPage()">
-      <span>⭐ Bookmark Page</span>
-    </div>
-    <div class="menu-row-item" onclick="shareCurrentUrl()">
-      <span>📤 Share Web Page</span>
-    </div>
-    <div class="menu-divider"></div>
-    <div class="menu-row-item" onclick="openHistoryModal()">
-      <span>📜 History & Bookmarks</span>
-    </div>
-    <div class="menu-row-item" onclick="openThemeModal()">
-      <span>🎨 Themes & Customizer</span>
+
+    <!-- Speed Dial Shortcuts Grid -->
+    <div class="speed-dial-section">
+      <h3 class="section-title">TOP SITES</h3>
+      <div class="speed-dial-grid">
+        <div class="speed-tile" onclick="openSite('https://www.google.com')">
+          <div class="tile-icon google">G</div>
+          <span class="tile-name">Google</span>
+        </div>
+        <div class="speed-tile" onclick="openSite('https://www.youtube.com')">
+          <div class="tile-icon youtube">▶</div>
+          <span class="tile-name">YouTube</span>
+        </div>
+        <div class="speed-tile" onclick="openSite('https://duckduckgo.com')">
+          <div class="tile-icon ddg">🦆</div>
+          <span class="tile-name">DuckDuckGo</span>
+        </div>
+        <div class="speed-tile" onclick="openSite('https://www.wikipedia.org')">
+          <div class="tile-icon wikipedia">W</div>
+          <span class="tile-name">Wikipedia</span>
+        </div>
+        <div class="speed-tile" onclick="openSite('https://github.com')">
+          <div class="tile-icon github">🐙</div>
+          <span class="tile-name">GitHub</span>
+        </div>
+        <div class="speed-tile" onclick="openSite('https://www.reddit.com')">
+          <div class="tile-icon reddit">🤖</div>
+          <span class="tile-name">Reddit</span>
+        </div>
+        <div class="speed-tile" onclick="openSite('https://chatgpt.com')">
+          <div class="tile-icon chatgpt">⚡</div>
+          <span class="tile-name">ChatGPT</span>
+        </div>
+        <div class="speed-tile" onclick="openSite('https://news.google.com')">
+          <div class="tile-icon news">📰</div>
+          <span class="tile-name">News</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Main Web Browser Viewport Container -->
-  <div class="browser-viewport-wrapper" id="viewport-container">
-    <iframe id="browser-frame" src="about:blank" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"></iframe>
-  </div>
-
-  <!-- Bottom Fast Navigation Bar -->
+  <!-- Bottom Fast Bar -->
   <div class="browser-bottom-bar">
-    <button class="b-btn" title="New Tab" onclick="openNewTab()">➕</button>
-    <button class="b-btn" title="Bookmarks" onclick="openHistoryModal('bookmarks')">⭐</button>
-    <button class="b-btn active" title="Home Speed Dial" onclick="loadSpeedDial()">🏠</button>
-    <button class="b-btn" title="AI Assistant" onclick="toggleAISidebar()">⚡</button>
-    <button class="b-btn" title="Tab Switcher" onclick="openTabSwitcher()">📑</button>
+    <button class="b-btn" title="Back" onclick="navGoBack()">‹</button>
+    <button class="b-btn active" title="Home" onclick="navGoHome()">🏠</button>
+    <button class="b-btn" title="Mira AI" onclick="toggleAISidebar()">⚡ AI</button>
+    <button class="b-btn" title="Reload" onclick="navReload()">↻</button>
   </div>
 
-  <!-- Multi-Tab Carousel Switcher Modal -->
-  <div class="modal-overlay" id="tab-switcher-modal">
-    <div class="modal-card tab-modal-card">
-      <div class="modal-header">
-        <h3>📑 Active Tabs (<span id="tab-modal-count">1</span>)</h3>
-        <button class="close-btn" onclick="closeTabSwitcher()">✕</button>
-      </div>
-      <div class="tab-cards-container" id="tab-cards-grid">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-      <button class="new-tab-fab" onclick="openNewTab()">➕ New Tab</button>
-    </div>
-  </div>
-
-  <!-- Built-in AI Assistant Sidebar Modal -->
+  <!-- Built-in AI Assistant Drawer Modal -->
   <div class="modal-overlay" id="ai-sidebar-modal">
     <div class="modal-card ai-sidebar-card">
       <div class="modal-header">
-        <h3>⚡ Mira AI Web Assistant</h3>
+        <h3>⚡ Mira AI Assistant</h3>
         <button class="close-btn" onclick="toggleAISidebar()">✕</button>
       </div>
       <div class="ai-quick-actions">
@@ -108,54 +111,11 @@
         <button class="ai-chip" onclick="aiTranslatePage()">🌐 Translate</button>
       </div>
       <div class="ai-chat-history" id="ai-chat-history">
-        <div class="ai-msg bot">⚡ Hello! I am your Mira AI Browser Assistant. Ask me anything about the current web page or search query!</div>
+        <div class="ai-msg bot">⚡ Hello! I am your Mira AI Assistant. Type your question or search prompt below!</div>
       </div>
       <div class="ai-input-row">
-        <input type="text" id="ai-chat-input" placeholder="Ask AI about this page..." autocomplete="off">
+        <input type="text" id="ai-chat-input" placeholder="Ask Mira AI..." autocomplete="off">
         <button class="ai-send-btn" onclick="sendAIMessage()">Send</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Reader Mode View Overlay -->
-  <div class="modal-overlay" id="reader-mode-modal">
-    <div class="modal-card reader-card">
-      <div class="modal-header">
-        <h3 id="reader-title">Article Reader View</h3>
-        <button class="close-btn" onclick="toggleReaderMode()">✕</button>
-      </div>
-      <div class="reader-content" id="reader-body-content">
-        <!-- Clean reader text rendered here -->
-      </div>
-    </div>
-  </div>
-
-  <!-- History & Bookmarks Modal -->
-  <div class="modal-overlay" id="history-modal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3>📜 History & Bookmarks</h3>
-        <button class="close-btn" onclick="closeHistoryModal()">✕</button>
-      </div>
-      <div class="modal-tabs">
-        <button class="modal-tab-btn active" id="tab-btn-bookmarks" onclick="switchHistoryTab('bookmarks')">⭐ Bookmarks</button>
-        <button class="modal-tab-btn" id="tab-btn-history" onclick="switchHistoryTab('history')">📜 History</button>
-      </div>
-      <div class="history-list" id="history-items-list">
-        <!-- History / Bookmarks items -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Theme Selector Modal -->
-  <div class="modal-overlay" id="theme-modal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3>🎨 Browser Themes</h3>
-        <button class="close-btn" onclick="closeThemeModal()">✕</button>
-      </div>
-      <div class="theme-grid" id="theme-grid-container">
-        <!-- Rendered by app.js -->
       </div>
     </div>
   </div>
