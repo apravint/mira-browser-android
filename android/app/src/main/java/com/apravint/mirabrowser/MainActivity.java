@@ -1,4 +1,4 @@
-package com.apravint.omarchybrowser;
+package com.apravint.mirabrowser;
 
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
         settings.setUserAgentString(MOBILE_USER_AGENT);
 
-        webView.addJavascriptInterface(new BrowserBridge(), "AndroidBrowser");
+        webView.addJavascriptInterface(new BrowserBridge(), "AndroidBridge");
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
 
@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
     public class BrowserBridge {
 
         @JavascriptInterface
-        public void setDesktopUserAgent(boolean desktop) {
+        public void setDesktopMode(boolean desktop) {
             if (webView != null) {
                 webView.post(new Runnable() {
                     @Override
@@ -103,7 +103,7 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
-        public void performHaptics() {
+        public void vibrate(int duration) {
             try {
                 if (webView != null) {
                     webView.post(new Runnable() {
