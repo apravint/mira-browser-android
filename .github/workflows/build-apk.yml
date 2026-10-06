@@ -64,26 +64,31 @@ jobs:
             -I $ANDROID_JAR \
             -F build/bin/unaligned.apk build/bin/
 
-      - name: ZipAlign APK
+      - name: ZipAlign & Sign APK
         run: |
-          $ANDROID_HOME/build-tools/34.0.0/zipalign -v 4 build/bin/unaligned.apk MiraBrowser.apk
+          echo "=== 1. ZipAligning APK to 4-byte boundary ==="
+          $ANDROID_HOME/build-tools/34.0.0/zipalign -v 4 build/bin/unaligned.apk build/bin/aligned.apk
 
-      - name: Create Keystore & Sign APK
-        run: |
+          echo "=== 2. Creating Keystore ==="
           keytool -genkey -v -keystore release.keystore \
             -alias mira \
             -keyalg RSA -keysize 2048 -validity 10000 \
             -storepass android -keypass android \
             -dname "CN=AyyappaPravin, OU=Dev, O=Mira, L=City, S=State, C=US"
           
+          echo "=== 3. Signing APK with V1/V2/V3 schemes ==="
           $ANDROID_HOME/build-tools/34.0.0/apksigner sign \
             --ks release.keystore \
             --ks-pass pass:android \
             --key-pass pass:android \
+            --v1-signing-enabled true \
+            --v2-signing-enabled true \
+            --v3-signing-enabled true \
             --out MiraBrowser.apk \
-            build/bin/unaligned.apk
+            build/bin/aligned.apk
           
-          $ANDROID_HOME/build-tools/34.0.0/apksigner verify MiraBrowser.apk
+          echo "=== 4. Verifying Signed APK ==="
+          $ANDROID_HOME/build-tools/34.0.0/apksigner verify --verbose MiraBrowser.apk
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
