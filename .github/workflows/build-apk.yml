@@ -30,7 +30,9 @@ jobs:
 
       - name: Build Unsigned APK
         run: |
-          mkdir -p build/gen build/obj build/bin
+          mkdir -p build/gen build/obj build/bin assets/web
+          cp -r web/* assets/
+          cp -r web/* assets/web/
           export ANDROID_JAR=$ANDROID_HOME/platforms/android-34/android.jar
           
           echo "=== 1. Compiling Android Resources ==="
@@ -58,7 +60,7 @@ jobs:
           $ANDROID_HOME/build-tools/34.0.0/aapt package -f \
             -M android/app/src/main/AndroidManifest.xml \
             -S android/app/src/main/res \
-            -A web \
+            -A assets \
             -I $ANDROID_JAR \
             -F build/bin/unaligned.apk build/bin/
 

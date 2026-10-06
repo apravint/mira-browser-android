@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
     private WebView mainWebView;
     private static final String DESKTOP_USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
     private static final String MOBILE_USER_AGENT = "Mozilla/5.0 (Linux; Android 14; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36";
-    private String homeUrl = "file:///android_asset/web/index.html";
+    private String homeUrl = "file:///android_asset/index.html";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,17 @@ public class MainActivity extends Activity {
                     return true;
                 }
                 return false;
+            }
+
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                if (failingUrl != null && failingUrl.contains("index.html")) {
+                    if (failingUrl.endsWith("/web/index.html")) {
+                        view.loadUrl("file:///android_asset/index.html");
+                    } else if (failingUrl.endsWith("/index.html")) {
+                        view.loadUrl("file:///android_asset/web/index.html");
+                    }
+                }
             }
 
             @Override
