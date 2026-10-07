@@ -1,0 +1,8 @@
+build/
+bin/
+gen/
+obj/
+*.apk
+*.keystore
+MiraBrowser-APK/
+.DS_Store
