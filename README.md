@@ -1,10 +1,14 @@
-# 🌐 Mira Chromium Mobile Browser (`v1.0.0`)
+# 🌐 Mira Chromium Mobile Browser (`v1.1.0`)
 
 [![GitHub Release](https://img.shields.io/github/v/release/apravint/mira-browser-android?color=cyan&label=Latest%20Release)](https://github.com/apravint/mira-browser-android/releases/tag/v1.0.0)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-00F0FF?style=flat&logo=github)](https://apravint.github.io/mira-browser-android/)
+[![Target SDK](https://img.shields.io/badge/Target%20SDK-35%20(Android%2015)-green.svg)](https://developer.android.com/about/versions/15)
+[![Edge-to-Edge](https://img.shields.io/badge/Display-Edge--to--Edge%20Compliant-purple.svg)](https://developer.android.com/develop/ui/views/layout/edge-to-edge)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Android Min SDK](https://img.shields.io/badge/Android-7.0%2B%20(API%2024)-brightgreen)](https://developer.android.com)
 
-**Mira Browser** is a top-grade, hardware-accelerated Chromium mobile web browser for Android featuring an AI Assistant drawer, Speed Dial start dashboard, distraction-free reader mode, and dynamic glassmorphic themes.
+> 🌐 **Try it Live in Your Browser**: [Launch Mira Browser Web Edition](https://apravint.github.io/mira-browser-android/)
+
+**Mira Browser** is a top-grade, hardware-accelerated Chromium mobile web browser for Android and the Web featuring an AI Assistant drawer, Speed Dial start dashboard, distraction-free reader mode, and dynamic glassmorphic themes. Built with Android 15 (SDK 35) Edge-to-Edge display support, Predictive Back navigation, and scoped storage security compliance.
 
 Developed by **Ayyappa Pravin** (<apravint@gmail.com>).
 

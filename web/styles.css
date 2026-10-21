@@ -37,7 +37,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.6rem 0.8rem;
+  padding: max(0.6rem, env(safe-area-inset-top, 0px)) max(0.8rem, env(safe-area-inset-right, 0px)) 0.6rem max(0.8rem, env(safe-area-inset-left, 0px));
   background: var(--navbar-bg);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
