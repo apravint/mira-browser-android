@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 915" width="412" height="915">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&amp;family=JetBrains+Mono:wght@700&amp;display=swap');
+      .brand-title { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 2px; }
+      .brand-sub { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 1.5px; }
+      .tile-txt { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect width="412" height="915" fill="#16161E" />
+
+  <!-- Top Omnibox -->
+  <g id="omnibox" transform="translate(16, 44)">
+    <rect width="380" height="44" fill="#1A1B26" stroke="#292E42" stroke-width="1.5" />
+    <rect x="8" y="8" width="32" height="28" fill="#24283B" stroke="#292E42" />
+    <text x="24" y="27" fill="#73DACA" font-size="14" text-anchor="middle">🛡️</text>
+    <text x="50" y="27" fill="#565F89" font-family="'Outfit', sans-serif" font-size="13">Search DuckDuckGo or enter URL...</text>
+    <rect x="334" y="6" width="38" height="32" fill="#7AA2F7" />
+    <text x="353" y="27" fill="#16161E" font-family="monospace" font-weight="900" font-size="12" text-anchor="middle">AI</text>
+  </g>
+
+  <!-- Hero Logo -->
+  <g id="hero" transform="translate(206, 175)" text-anchor="middle">
+    <rect x="-28" y="-45" width="56" height="56" fill="#7AA2F7" />
+    <text x="0" y="-8" fill="#16161E" font-size="34" font-weight="900">⚡</text>
+    <text x="0" y="42" fill="#C0CAF5" class="brand-title">MIRA BROWSER</text>
+    <text x="0" y="62" fill="#73DACA" class="brand-sub">FAST • PRIVATE • CHROMIUM ENGINE</text>
+  </g>
+
+  <!-- Speed Dial Section -->
+  <g id="speed-dial" transform="translate(16, 285)">
+    <text x="4" y="0" fill="#7AA2F7" font-family="monospace" font-weight="900" font-size="11" letter-spacing="2">SPEED DIAL</text>
+
+    <!-- Row 1 -->
+    <g transform="translate(0, 16)">
+      <!-- Google -->
+      <rect x="0" y="0" width="68" height="68" fill="#24283B" stroke="#292E42" />
+      <text x="34" y="42" fill="#4285F4" font-family="'Outfit', sans-serif" font-size="24" font-weight="900" text-anchor="middle">G</text>
+      <text x="34" y="84" fill="#C0CAF5" class="tile-txt" text-anchor="middle">Google</text>
+
+      <!-- YouTube -->
+      <rect x="78" y="0" width="68" height="68" fill="#24283B" stroke="#292E42" />
+      <text x="112" y="42" fill="#FF0000" font-size="20" font-weight="900" text-anchor="middle">▶</text>
+      <text x="112" y="84" fill="#C0CAF5" class="tile-txt" text-anchor="middle">YouTube</text>
+
+      <!-- DuckDuckGo -->
+      <rect x="156" y="0" width="68" height="68" fill="#24283B" stroke="#292E42" />
+      <text x="190" y="42" fill="#DE5833" font-size="22" font-weight="900" text-anchor="middle">🦆</text>
+      <text x="190" y="84" fill="#C0CAF5" class="tile-txt" text-anchor="middle">DuckDuckGo</text>
+
+      <!-- GitHub -->
+      <rect x="234" y="0" width="68" height="68" fill="#24283B" stroke="#292E42" />
+      <text x="268" y="42" fill="#FFFFFF" font-size="22" font-weight="900" text-anchor="middle">🐙</text>
+      <text x="268" y="84" fill="#C0CAF5" class="tile-txt" text-anchor="middle">GitHub</text>
+
+      <!-- Wikipedia -->
+      <rect x="312" y="0" width="68" height="68" fill="#24283B" stroke="#292E42" />
+      <text x="346" y="42" fill="#888888" font-family="'Outfit', sans-serif" font-size="22" font-weight="900" text-anchor="middle">W</text>
+      <text x="346" y="84" fill="#C0CAF5" class="tile-txt" text-anchor="middle">Wikipedia</text>
+    </g>
+
+    <!-- Row 2 -->
+    <g transform="translate(0, 116)">
+      <!-- Reddit -->
+      <rect x="0" y="0" width="68" height="68" fill="#24283B" stroke="#292E42" />
+      <text x="34" y="42" fill="#FF4500" font-size="22" font-weight="900" text-anchor="middle">🤖</text>
+      <text x="34" y="84" fill="#C0CAF5" class="tile-txt" text-anchor="middle">Reddit</text>
+
+      <!-- ChatGPT -->
+      <rect x="78" y="0" width="68" height="68" fill="#24283B" stroke="#292E42" />
+      <text x="112" y="42" fill="#10A37F" font-size="22" font-weight="900" text-anchor="middle">⚡</text>
+      <text x="112" y="84" fill="#C0CAF5" class="tile-txt" text-anchor="middle">ChatGPT</text>
+
+      <!-- HackerNews -->
+      <rect x="156" y="0" width="68" height="68" fill="#24283B" stroke="#292E42" />
+      <text x="190" y="42" fill="#FF6600" font-family="'Outfit', sans-serif" font-size="22" font-weight="900" text-anchor="middle">Y</text>
+      <text x="190" y="84" fill="#C0CAF5" class="tile-txt" text-anchor="middle">HackerNews</text>
+
+      <!-- X -->
+      <rect x="234" y="0" width="68" height="68" fill="#24283B" stroke="#292E42" />
+      <text x="268" y="42" fill="#1DA1F2" font-size="22" font-weight="900" text-anchor="middle">𝕏</text>
+      <text x="268" y="84" fill="#C0CAF5" class="tile-txt" text-anchor="middle">Twitter</text>
+
+      <!-- News -->
+      <rect x="312" y="0" width="68" height="68" fill="#24283B" stroke="#292E42" />
+      <text x="346" y="42" fill="#BB1919" font-size="22" font-weight="900" text-anchor="middle">📰</text>
+      <text x="346" y="84" fill="#C0CAF5" class="tile-txt" text-anchor="middle">News</text>
+    </g>
+  </g>
+
+  <!-- Mira Shield Card -->
+  <g id="shield-card" transform="translate(16, 540)">
+    <rect width="380" height="74" fill="#24283B" stroke="#292E42" stroke-width="1.5" />
+    <text x="24" y="46" font-size="28">🛡️</text>
+    <text x="64" y="34" fill="#C0CAF5" font-family="'Outfit', sans-serif" font-weight="900" font-size="13" letter-spacing="1">MIRA SHIELD ACTIVE</text>
+    <text x="64" y="54" fill="#565F89" font-family="'Outfit', sans-serif" font-size="11">42 ad &amp; tracker beacons blocked today</text>
+  </g>
+
+  <!-- Bottom Bar -->
+  <g id="bottom-bar" transform="translate(0, 855)">
+    <rect width="412" height="60" fill="#1A1B26" stroke="#292E42" stroke-width="1.5" />
+    <text x="45" y="36" fill="#C0CAF5" font-size="18" text-anchor="middle">‹</text>
+    <text x="125" y="36" fill="#C0CAF5" font-size="18" text-anchor="middle">›</text>
+    <text x="206" y="36" fill="#7AA2F7" font-size="22" text-anchor="middle">🏠</text>
+    <rect x="270" y="16" width="30" height="26" fill="none" stroke="#7AA2F7" stroke-width="1.5" />
+    <text x="285" y="34" fill="#7AA2F7" font-family="monospace" font-weight="900" font-size="12" text-anchor="middle">3</text>
+    <text x="365" y="36" fill="#C0CAF5" font-size="20" text-anchor="middle">⋮</text>
+  </g>
+</svg>

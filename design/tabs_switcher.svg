@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 915" width="412" height="915">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;900&amp;display=swap');
+      .header-txt { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 15px; letter-spacing: 2px; }
+      .card-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect width="412" height="915" fill="#16161E" />
+
+  <!-- Modal Header -->
+  <g transform="translate(16, 44)">
+    <rect width="380" height="48" fill="#1A1B26" stroke="#7AA2F7" stroke-width="2" />
+    <text x="16" y="30" fill="#7AA2F7" class="header-txt">TABS (3)</text>
+    <rect x="300" y="10" width="28" height="28" fill="#24283B" stroke="#292E42" />
+    <text x="314" y="28" fill="#73DACA" font-size="14" text-anchor="middle">🕶️</text>
+    <rect x="338" y="10" width="28" height="28" fill="#7AA2F7" />
+    <text x="352" y="30" fill="#16161E" font-weight="900" font-size="18" text-anchor="middle">+</text>
+  </g>
+
+  <!-- Tab Cards Grid -->
+  <g transform="translate(16, 112)">
+    <!-- Card 1: Active DuckDuckGo -->
+    <g transform="translate(0, 0)">
+      <rect width="180" height="210" fill="#24283B" stroke="#7AA2F7" stroke-width="2" />
+      <rect width="180" height="32" fill="#1A1B26" />
+      <text x="10" y="20" fill="#FFFFFF" class="card-title">DuckDuckGo Search</text>
+      <text x="165" y="20" fill="#565F89" font-size="12">✕</text>
+      <text x="90" y="125" font-size="44" text-anchor="middle">🦆</text>
+    </g>
+
+    <!-- Card 2: GitHub -->
+    <g transform="translate(200, 0)">
+      <rect width="180" height="210" fill="#24283B" stroke="#292E42" stroke-width="1" />
+      <rect width="180" height="32" fill="#1A1B26" />
+      <text x="10" y="20" fill="#FFFFFF" class="card-title">GitHub: apravint</text>
+      <text x="165" y="20" fill="#565F89" font-size="12">✕</text>
+      <text x="90" y="125" font-size="44" text-anchor="middle">🐙</text>
+    </g>
+
+    <!-- Card 3: Incognito Wikipedia -->
+    <g transform="translate(0, 230)">
+      <rect width="180" height="210" fill="#24283B" stroke="#73DACA" stroke-width="1.5" />
+      <rect width="180" height="32" fill="#1A1B26" />
+      <text x="10" y="20" fill="#73DACA" class="card-title">🕶️ Wikipedia</text>
+      <text x="165" y="20" fill="#565F89" font-size="12">✕</text>
+      <text x="90" y="125" font-size="44" text-anchor="middle">🌐</text>
+    </g>
+  </g>
+</svg>

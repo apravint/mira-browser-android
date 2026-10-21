@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 915" width="412" height="915">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&amp;display=swap');
+      .ai-header { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 15px; letter-spacing: 2px; }
+      .chip-txt { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 11px; }
+      .chat-txt { font-family: 'Outfit', sans-serif; font-size: 12px; }
+    </style>
+  </defs>
+
+  <rect width="412" height="915" fill="#16161E" />
+
+  <!-- AI Drawer Container -->
+  <g transform="translate(16, 44)">
+    <rect width="380" height="820" fill="#1A1B26" stroke="#7AA2F7" stroke-width="2" />
+    
+    <!-- Drawer Header -->
+    <rect width="380" height="52" fill="#24283B" />
+    <text x="20" y="32" fill="#7AA2F7" class="ai-header">⚡ MIRA AI ASSISTANT</text>
+    <text x="350" y="32" fill="#C0CAF5" font-size="16" text-anchor="middle">✕</text>
+
+    <!-- Chips Row -->
+    <g transform="translate(16, 68)">
+      <rect x="0" y="0" width="105" height="30" fill="#24283B" stroke="#292E42" />
+      <text x="52" y="19" fill="#7AA2F7" class="chip-txt" text-anchor="middle">📌 Summarize</text>
+
+      <rect x="113" y="0" width="115" height="30" fill="#24283B" stroke="#292E42" />
+      <text x="170" y="19" fill="#7AA2F7" class="chip-txt" text-anchor="middle">🎯 Takeaways</text>
+
+      <rect x="236" y="0" width="95" height="30" fill="#24283B" stroke="#292E42" />
+      <text x="283" y="19" fill="#7AA2F7" class="chip-txt" text-anchor="middle">🌐 Translate</text>
+    </g>
+
+    <!-- Assistant Message Card -->
+    <g transform="translate(16, 120)">
+      <rect width="348" height="180" fill="#24283B" stroke="#292E42" />
+      <text x="16" y="30" fill="#73DACA" font-weight="900" font-size="12">MIRA AI • PAGE INTELLIGENCE</text>
+      <text x="16" y="58" fill="#FFFFFF" class="chat-txt" font-weight="700">📌 Summary of Active Page:</text>
+      <text x="16" y="80" fill="#C0CAF5" class="chat-txt">• High-speed mobile Chromium WebView architecture.</text>
+      <text x="16" y="102" fill="#C0CAF5" class="chat-txt">• Persistent Omnibox with real-time tracker blocking.</text>
+      <text x="16" y="124" fill="#C0CAF5" class="chat-txt">• Multi-tab manager with private browsing sandbox.</text>
+      <text x="16" y="146" fill="#73DACA" class="chat-txt">Ask me to extract data, write code, or explain concepts!</text>
+    </g>
+
+    <!-- User Query -->
+    <g transform="translate(68, 320)">
+      <rect width="296" height="50" fill="#7AA2F7" />
+      <text x="16" y="30" fill="#16161E" class="chat-txt" font-weight="700">Explain the ad-blocking mechanism</text>
+    </g>
+
+    <!-- Assistant Reply -->
+    <g transform="translate(16, 390)">
+      <rect width="348" height="110" fill="#24283B" stroke="#292E42" />
+      <text x="16" y="30" fill="#73DACA" font-weight="900" font-size="12">MIRA SHIELD ENGINE</text>
+      <text x="16" y="55" fill="#C0CAF5" class="chat-txt">Requests match against 40+ tracker rules before</text>
+      <text x="16" y="75" fill="#C0CAF5" class="chat-txt">transmission, saving 40% battery and 3x load speed.</text>
+    </g>
+
+    <!-- Chat Prompt Input -->
+    <g transform="translate(16, 750)">
+      <rect width="348" height="46" fill="#24283B" stroke="#292E42" />
+      <text x="16" y="28" fill="#565F89" class="chat-txt">Ask Mira about this page...</text>
+      <rect x="306" y="7" width="32" height="32" fill="#7AA2F7" />
+      <text x="322" y="27" fill="#16161E" font-size="14" font-weight="900" text-anchor="middle">➤</text>
+    </g>
+  </g>
+</svg>
